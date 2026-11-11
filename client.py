@@ -1,15 +1,15 @@
 
 class Client:
     def __init__(self, name, balance):
-        # Зберігає ім'я та баланс клієнта
-        pass
+        self.name = name
+        self.balance = balance
 
     def can_pay(self, amount):
-        # Перевіряє, чи вистачає грошей
-        # Повертає True або False
-        pass
+        return 0 <= amount <= self.balance
 
     def pay(self, amount):
-        # Списує гроші з балансу
-        # Повертає True або False
-        pass
+        if not self.can_pay(amount):
+            return False
+
+        self.balance -= amount
+        return True
