@@ -1,5 +1,5 @@
 class Bike:
-    def __innit_(self, bike_id, is_electric: bool):
+    def __innit__(self, bike_id, is_electric: bool):
         self.bike_id = bike_id
         self.is_electric = is_electric
         self.price_per_min = 5 if is_electric else 2
