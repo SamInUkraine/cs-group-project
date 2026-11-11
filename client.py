@@ -13,3 +13,6 @@ class Client:
 
         self.balance -= amount
         return True
+     
+    def get_balance(self):
+        return self.balance
