@@ -27,6 +27,15 @@ def ride(client, start, finish, minutes):
         print(f"{client.name}, не вистачає грошей. Поїздка коштує {cost} грн, а на балансі лише {client.balance} грн")
         return
 
+
+
+def checks():
+    assert calc_cost(Bike(99, True), 10) == 50
+    assert calc_cost(Bike(98, False), 10) == 20
+    assert take_bike(Client("Тест", 100), Station("Порожня")) == "no_bikes"
+    print("Всі перевірки пройдено")
+
+
 def main():
     khreshchatyk_station = Station("Хрещатик")
     podil_station = Station("Поділ")
@@ -45,6 +54,20 @@ def main():
 
     olya = Client("Оля", 300)
     petro = Client("Петро", 100)
+
+    print("=== Поїздки ===")
+    ride(olya, khreshchatyk_station, podil_station, 20)
+    ride(petro, khreshchatyk_station, podil_station, 15)
+    ride(petro, khreshchatyk_station, podil_station, 5)
+    ride(olya, podil_station, khreshchatyk_station, 10)
+
+    print("\n=== Баланси ===")
+    print(f"{olya.name}: {olya.get_balance()} грн")
+    print(f"{petro.name}: {petro.get_balance()} грн")
+
+    print_report([khreshchatyk_station, podil_station])
+
+    checks()
 
 
 if __name__ == "__main__":
