@@ -66,7 +66,7 @@ def main():
     ride(petro, podil_station, khreshchatyk_station, 15)
     ride(olya, podil_station, khreshchatyk_station, 10)
 
-    print("\n=== Баланси ===")
+    print("=== Баланси ===")
     print(f"{olya.name}: {olya.get_balance()} грн")
     print(f"{petro.name}: {petro.get_balance()} грн")
 

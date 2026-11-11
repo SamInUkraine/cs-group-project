@@ -1,13 +1,26 @@
 class Bike:
-    def __init__(self, bike_id, is_electric: bool):
+    def __init__(self, bike_id, is_electric: bool, charge=100):
         self.bike_id = bike_id
         self.is_electric = is_electric
         self.price_per_min = 5 if is_electric else 2
+        self.charge = charge
 
+    def is_available(self):
+        if self.is_electric:
+            return self.charge >= 20
+        else: 
+            return True
+    
     def get_price_per_min(self):
         return self.price_per_min
-
-
+    
+    def remove_bike(self):
+        # видає перший придатний велосипед
+        for bike in self.bikes:
+            if bike.is_available():
+                self.bikes.remove(bike)
+                return bike
+        return None
 
 class Station:
     def __init__(self, name: str):
@@ -27,3 +40,8 @@ class Station:
 
     def get_bikes_count(self):
         return len(self.bikes)
+    
+    def get_low_charge_bikes(self):
+        # повертає велосипеди з зарядом менше 20
+        return [bike for bike in self.bikes if not bike.is_available()]
+
