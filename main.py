@@ -8,3 +8,17 @@ def print_report(stations):
     for station in stations:
         print(f"Станція {station.name}: {station.get_bikes_count()} велосипедів")
     print(f"Мережа заробила загалом: {get_total_revenue()} грн")
+
+
+def main():
+    khreshchatyk_station = Station("Хрещатик")
+    podil_station = Station("Поділ")
+
+    bike_1 = Bike(1, is_electric=False)
+    bike_2 = Bike(2, is_electric=True)
+    bike_3 = Bike(3, is_electric=False)
+    bike_4 = Bike(4, is_electric=True)
+    bike_5 = Bike(5, is_electric=False)
+
+if __name__ == "__main__":
+    main()
