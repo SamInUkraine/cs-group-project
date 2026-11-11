@@ -65,6 +65,7 @@ def main():
     print(f"{olya.name}: {olya.get_balance()} грн")
     print(f"{petro.name}: {petro.get_balance()} грн")
 
+    print("")
     print_report([khreshchatyk_station, podil_station])
 
     checks()
