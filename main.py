@@ -20,5 +20,15 @@ def main():
     bike_4 = Bike(4, is_electric=True)
     bike_5 = Bike(5, is_electric=False)
 
+    khreshchatyk_station.add_bike(bike_1)
+    khreshchatyk_station.add_bike(bike_2)
+    podil_station.add_bike(bike_3)
+    podil_station.add_bike(bike_4)
+    podil_station.add_bike(bike_5)
+
+    olya = Client("Оля", 300)
+    petro = Client("Петро", 100)
+
+
 if __name__ == "__main__":
     main()
