@@ -27,11 +27,9 @@ def ride(client, start, finish, minutes):
     status, cost = return_bike(client, finish, minutes)
     if status == "ok":
         print(f"{client.name}: велосипед №{bike.bike_id}, "
-              f"Поїдка з {start.name} до {finish.name}, {minutes} хв, списано {cost} грн")
+              f"Поїздка з {start.name} до {finish.name}, {minutes} хв, списано {cost} грн")
     elif status == "not_enough_money":
         print(f"{client.name}, не вистачає грошей. Поїздка коштує {cost} грн, а на балансі лише {client.balance} грн")
-        return
-
 
 
 def checks():
@@ -49,13 +47,13 @@ def main():
     bike_2 = Bike(2, is_electric=True, charge=15)
     bike_3 = Bike(3, is_electric=False)
     bike_4 = Bike(4, is_electric=True, charge=100)
-    bike_5 = Bike(5, is_electric=False)
+    bike_5 = Bike(5, is_electric=True, charge=10)
 
-    khreshchatyk_station.add_bike(bike_1)
     khreshchatyk_station.add_bike(bike_2)
-    podil_station.add_bike(bike_3)
+    khreshchatyk_station.add_bike(bike_1)
     podil_station.add_bike(bike_4)
     podil_station.add_bike(bike_5)
+    podil_station.add_bike(bike_3)
 
     olya = Client("Оля", 300)
     petro = Client("Петро", 100)
@@ -66,7 +64,7 @@ def main():
     ride(petro, podil_station, khreshchatyk_station, 15)
     ride(olya, podil_station, khreshchatyk_station, 10)
 
-    print("=== Баланси ===")
+    print("\n=== Баланси ===")
     print(f"{olya.name}: {olya.get_balance()} грн")
     print(f"{petro.name}: {petro.get_balance()} грн")
 

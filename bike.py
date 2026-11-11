@@ -13,14 +13,6 @@ class Bike:
     
     def get_price_per_min(self):
         return self.price_per_min
-    
-    def remove_bike(self):
-        # видає перший придатний велосипед
-        for bike in self.bikes:
-            if bike.is_available():
-                self.bikes.remove(bike)
-                return bike
-        return None
 
 class Station:
     def __init__(self, name: str):
@@ -40,6 +32,15 @@ class Station:
 
     def get_bikes_count(self):
         return len(self.bikes)
+    
+
+    def remove_bike(self):
+        # видає перший придатний велосипед
+        for bike in self.bikes:
+            if bike.is_available():
+                self.bikes.remove(bike)
+                return bike
+        return None
     
     def get_low_charge_bikes(self):
         # повертає велосипеди з зарядом менше 20
