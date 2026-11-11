@@ -10,3 +10,6 @@ class Rental:
         self.bike = bike
         self.start_time = datetime.now()
         self.end_time = None
+
+    def end_rental(self):
+        self.end_time = datetime.now()
