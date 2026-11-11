@@ -9,6 +9,14 @@ def print_report(stations):
         print(f"Станція {station.name}: {station.get_bikes_count()} велосипедів")
     print(f"Мережа заробила загалом: {get_total_revenue()} грн")
 
+def ride(client, start, finish, minutes):
+    status = take_bike(client, start)
+    if status == "no_bikes":
+        print(f"Вибачте, {client.name}, на станції {start.name} немає велосипедів")
+        return
+    elif status == "already_riding":
+        print(f"Вибачте, {client.name}, спочатку треба повернути велосипед")
+        return
 
 def main():
     khreshchatyk_station = Station("Хрещатик")
