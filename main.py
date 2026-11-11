@@ -18,6 +18,15 @@ def ride(client, start, finish, minutes):
         print(f"Вибачте, {client.name}, спочатку треба повернути велосипед")
         return
 
+    bike = client.current_bike
+    status, cost = return_bike(client, finish, minutes)
+    if status == "ok":
+        print(f"{client.name}: велосипед №{bike.bike_id}, "
+              f"Поїдка з {start.name} до {finish.name}, {minutes} хв, списано {cost} грн")
+    elif status == "not_enough_money":
+        print(f"{client.name}, не вистачає грошей. Поїздка коштує {cost} грн, а на балансі лише {client.balance} грн")
+        return
+
 def main():
     khreshchatyk_station = Station("Хрещатик")
     podil_station = Station("Поділ")
