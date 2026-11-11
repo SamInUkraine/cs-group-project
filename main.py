@@ -7,12 +7,17 @@ def print_report(stations):
     print("=== Звіт ===")
     for station in stations:
         print(f"Станція {station.name}: {station.get_bikes_count()} велосипедів")
+    print("Електровелосипеди з низьким зарядом:")
+    for station in stations:
+        for bike in station.get_low_charge_bikes():
+            print(f"Велосипед №{bike.bike_id} - станція {station.name}, заряд {bike.charge}%")
     print(f"Мережа заробила загалом: {get_total_revenue()} грн")
+
 
 def ride(client, start, finish, minutes):
     status = take_bike(client, start)
     if status == "no_bikes":
-        print(f"Вибачте, {client.name}, на станції {start.name} немає велосипедів")
+        print(f"Вибачте, {client.name}, на станції {start.name} немає придатних велосипедів")
         return
     elif status == "already_riding":
         print(f"Вибачте, {client.name}, спочатку треба повернути велосипед")
@@ -41,9 +46,9 @@ def main():
     podil_station = Station("Поділ")
 
     bike_1 = Bike(1, is_electric=False)
-    bike_2 = Bike(2, is_electric=True)
+    bike_2 = Bike(2, is_electric=True, charge=15)
     bike_3 = Bike(3, is_electric=False)
-    bike_4 = Bike(4, is_electric=True)
+    bike_4 = Bike(4, is_electric=True, charge=100)
     bike_5 = Bike(5, is_electric=False)
 
     khreshchatyk_station.add_bike(bike_1)
@@ -58,7 +63,7 @@ def main():
     print("=== Поїздки ===")
     ride(olya, khreshchatyk_station, podil_station, 20)
     ride(petro, khreshchatyk_station, podil_station, 15)
-    ride(petro, khreshchatyk_station, podil_station, 5)
+    ride(petro, podil_station, khreshchatyk_station, 15)
     ride(olya, podil_station, khreshchatyk_station, 10)
 
     print("\n=== Баланси ===")

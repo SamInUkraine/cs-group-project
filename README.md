@@ -101,7 +101,10 @@
 
 | Файл | Власник | Що в ньому буде (класи, функції) |
 |---|---|---|
-|  |  |  |
+| `bike.py` | Кіріл Чикалюк | класи `Bike`, `Station` |
+| `client.py` | Мусаєв Андрій | клас `Client` |
+| `rental.py` | Семен Малашенко | `calc_cost`, `take_bike`, `return_bike`, `get_total_revenue` |
+| `main.py` | Семен Малашенко | `main()`, тестові дані, `ride`, `print_report`, `checks` |
 
 ---
 
