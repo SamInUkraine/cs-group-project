@@ -9,7 +9,7 @@
 | Семен Малашенко | 3 — поїздки, вартість, виручка | rental.py |
 | Семен Малашенко | 4 — `main()`, тестові дані, звіт, `assert` | main.py |
 
-Посилання на репозиторій:
+Посилання на репозиторій: https://github.com/SamInUkraine/cs-group-project
 
 ---
 
@@ -63,10 +63,15 @@
 | balance: int — баланс клієнта | pay(amount) — списує гроші з балансу |
 | current_bike: Bike або None — поточний велосипед | get_balance() — повертає поточний баланс |
 
-
-| Що він ЗНАЄ (атрибути) | Що він ВМІЄ (методи) |
+### Функції поїздок (`rental.py`, без класу)
+ 
+| Що файл ЗНАЄ | Що він ВМІЄ (функції) |
 |---|---|
-|  |  |
+| total_revenue: int — скільки мережа заробила загалом | calc_cost(bike, minutes) — повертає вартість поїздки |
+| | take_bike(client, station) — повертає "ok", "already_riding" або "no_bikes" |
+| | return_bike(client, station, minutes) — повертає (статус, вартість): "ok", "no_bike" або "not_enough_money" |
+| | get_total_revenue() — повертає total_revenue |
+
 
 **Сценарій «Оля бере електричний велосипед на станції А, катається 20 хвилин і повертає його на станцію Б»:**
 
